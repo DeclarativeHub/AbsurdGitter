@@ -19,7 +19,7 @@ extension UIWindow {
         public let window: UIWindow
     }
 
-    /// Wireframe for the main window? Why not. Updates window's rootViewController whenever the session is changed.
+    /// Binder for the main window? Why not. Updates window's rootViewController whenever the session is changed.
     public static func makeWireframe(_ sessionManager: SessionManager) -> Wireframe {
         let window = UIWindow(frame: UIScreen.main.bounds)
 
