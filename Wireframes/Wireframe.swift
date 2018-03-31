@@ -9,9 +9,9 @@
 import Foundation
 import ReactiveKit
 
-/// Router is just a wrapper over Subject that exposes `routes` signal to the
-/// object responsible to do routing, e.g. a navigation controller.
-/// Object that triggers the routing calls `navigate(to:)` method.
+/// Router is just a wrapper over a subject that exposes `routes` signal to the
+/// object responsible for routing, e.g. a navigation controller.
+/// Routing is triggered by calling `navigate(to:)` method.
 public class Router<Routes> {
 
     private let _routes = SafePublishSubject<Routes>()
