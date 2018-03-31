@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Binders
+import Wireframes
 import Services
 
 @UIApplicationMain
@@ -20,10 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        // Create main window wireframe with the session manager. Consult MainWindow.swift.
-        let wireframe = UIWindow.makeWireframe(sessionManager)
-
-        window = wireframe.window
+        window = UIWindow.makeMainWindow(sessionManager)
         window?.makeKeyAndVisible()
 
         return true

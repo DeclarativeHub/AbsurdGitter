@@ -15,51 +15,50 @@ import ReactiveKit
 class RoomNavigationController: UINavigationController {}
 
 /// Navigation controller for the first tab: Rooms.
+/// Handles routes from the view controllers it displays.
 extension RoomNavigationController {
-
-    /// Wireframe is a struct that contains the view controller instance and
-    /// all segues (transitions) that can be initiated by the view controller.
-    /// This view controller does not trigger any segues, but it is still a good
-    /// idea to be consistent and define a wireframe type.
-    struct Wireframe {
-        let navigationController: RoomNavigationController
-    }
 
     /// Binder is a function that creates and configures the wireframe. It binds the data
     /// from the service to the view controller and user actions from the view controller
     /// to the service.
-    static func makeWireframe(_ session: AuthenticatedSession) -> Wireframe {
+    static func makeWireframe(_ session: AuthenticatedSession) -> Wireframe<RoomNavigationController, Void> {
 
         // Room list view controleler is navigation controller's root view controller
         let service = session.roomService
         let roomListWireframe = RoomListViewController.makeWireframe(service)
         let navigationController = RoomNavigationController(rootViewController: roomListWireframe.viewController)
 
-        // We have to handle all segues from the wireframe.
-        // Bind the seques signal to the object that will perform the transition - in our
+        // We have to handle all routes from the wireframe.
+        // Bind the routes signal to the object that will perform the transition - in our
         // case to the navigation controller.
-        roomListWireframe.presentRoom.bind(to: navigationController) { navigationController, room in
-            navigationController.presentRoom(room, session: session)
+        roomListWireframe.router.routes.bind(to: navigationController) { navigationController, route in
+            switch route {
+            case .room(let room):
+                navigationController.presentRoom(room, session: session)
+            }
         }
 
-        return Wireframe(navigationController: navigationController)
+        return Wireframe(for: navigationController)
     }
 
-    /// Segues (routes) can be implemented as function extensions on the view controller.
+    /// Routes can be implemented as function extensions on the view controller.
     func presentRoom(_ room: Room, session: AuthenticatedSession) {
         let service = MessageService(session.client, room: room)
         let wireframe = RoomViewController.makeWireframe(service)
 
-        // We have to handle all segues from the wireframe.
+        // We have to handle all routes from the wireframe.
         // Same approach as with the previous one.
-        wireframe.presentEditMessage.bind(to: self) { navigationController, message in
-            navigationController.presentEditMessage(message, session: session)
+        wireframe.router.routes.bind(to: self) { navigationController, route in
+            switch route {
+            case .editMessage(let message):
+                navigationController.presentEditMessage(message, session: session)
+            }
         }
 
         pushViewController(wireframe.viewController, animated: true)
     }
 
-    // Another segue function
+    // Another routing function
     func presentEditMessage(_ message: Message, session: AuthenticatedSession) {
         // TODO
     }

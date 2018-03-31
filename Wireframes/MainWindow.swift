@@ -14,13 +14,8 @@ import ReactiveKit
 
 extension UIWindow {
 
-    /// Wireframe for the main window? Why not.
-    public struct Wireframe {
-        public let window: UIWindow
-    }
-
     /// Binder for the main window? Why not. Updates window's rootViewController whenever the session is changed.
-    public static func makeWireframe(_ sessionManager: SessionManager) -> Wireframe {
+    public static func makeMainWindow(_ sessionManager: SessionManager) -> UIWindow {
         let window = UIWindow(frame: UIScreen.main.bounds)
 
         // Observe currentSession and update rootViewController accordingly.
@@ -33,6 +28,6 @@ extension UIWindow {
             }
         }
 
-        return Wireframe(window: window)
+        return window
     }
 }

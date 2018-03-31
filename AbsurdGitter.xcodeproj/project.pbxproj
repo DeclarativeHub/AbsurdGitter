@@ -14,6 +14,7 @@
 		EC966F0C204B147C0016B4FC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7B7E020389C9F006C40B4 /* UserService.swift */; };
 		EC966F0D204B147C0016B4FC /* RoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7B7E720389E66006C40B4 /* RoomService.swift */; };
 		EC966F0E204B147C0016B4FC /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7B7EB20398A7B006C40B4 /* MessageService.swift */; };
+		EC9AE14D206F864400339DE9 /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AE14C206F864400339DE9 /* Wireframe.swift */; };
 		ECA3006B206D0F7300F6EA37 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3006A206D0F7300F6EA37 /* MainTabBarController.swift */; };
 		ECA3006D206D142E00F6EA37 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3006C206D142E00F6EA37 /* ProfileViewController.swift */; };
 		ECA3006F206D14FE00F6EA37 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3006E206D14FE00F6EA37 /* ProfileViewController.swift */; };
@@ -66,9 +67,9 @@
 		ECE7B7FF2039A79B006C40B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7B7FE2039A79B006C40B4 /* LoginViewController.swift */; };
 		ECE7B8002039A7B0006C40B4 /* Layoutless.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE7B77420386948006C40B4 /* Layoutless.framework */; };
 		ECE7B8022039A840006C40B4 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7B8012039A840006C40B4 /* RoomListViewController.swift */; };
-		ECE7B80C2039AA14006C40B4 /* Binders.h in Headers */ = {isa = PBXBuildFile; fileRef = ECE7B80A2039AA14006C40B4 /* Binders.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECE7B80F2039AA14006C40B4 /* Binders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE7B8082039AA14006C40B4 /* Binders.framework */; };
-		ECE7B8102039AA14006C40B4 /* Binders.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECE7B8082039AA14006C40B4 /* Binders.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECE7B80C2039AA14006C40B4 /* Wireframes.h in Headers */ = {isa = PBXBuildFile; fileRef = ECE7B80A2039AA14006C40B4 /* Wireframes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECE7B80F2039AA14006C40B4 /* Wireframes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE7B8082039AA14006C40B4 /* Wireframes.framework */; };
+		ECE7B8102039AA14006C40B4 /* Wireframes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECE7B8082039AA14006C40B4 /* Wireframes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ECE7B8152039AA34006C40B4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7B8142039AA34006C40B4 /* LoginViewController.swift */; };
 		ECE7B8172039AA55006C40B4 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7B8162039AA55006C40B4 /* MainWindow.swift */; };
 		ECE7B8222039AF9D006C40B4 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE7B77220386948006C40B4 /* Bond.framework */; };
@@ -168,7 +169,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ECE7B8102039AA14006C40B4 /* Binders.framework in Embed Frameworks */,
+				ECE7B8102039AA14006C40B4 /* Wireframes.framework in Embed Frameworks */,
 				ECE7B76C20386932006C40B4 /* Client.framework in Embed Frameworks */,
 				ECE7B7FA2039A76B006C40B4 /* Views.framework in Embed Frameworks */,
 				ECE7B7B5203889DD006C40B4 /* API.framework in Embed Frameworks */,
@@ -181,6 +182,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC9AE14C206F864400339DE9 /* Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
 		ECA30068206CD93100F6EA37 /* RoomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomNavigationController.swift; sourceTree = "<group>"; };
 		ECA3006A206D0F7300F6EA37 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		ECA3006C206D142E00F6EA37 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -231,8 +233,8 @@
 		ECE7B7F42039A76B006C40B4 /* Views.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Views.h; sourceTree = "<group>"; };
 		ECE7B7FE2039A79B006C40B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ECE7B8012039A840006C40B4 /* RoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
-		ECE7B8082039AA14006C40B4 /* Binders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Binders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECE7B80A2039AA14006C40B4 /* Binders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Binders.h; sourceTree = "<group>"; };
+		ECE7B8082039AA14006C40B4 /* Wireframes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Wireframes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE7B80A2039AA14006C40B4 /* Wireframes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wireframes.h; sourceTree = "<group>"; };
 		ECE7B8142039AA34006C40B4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ECE7B8162039AA55006C40B4 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		ECE7B81C2039AD13006C40B4 /* UnauthenticatedSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthenticatedSession.swift; sourceTree = "<group>"; };
@@ -255,7 +257,7 @@
 				ECE7B77620386948006C40B4 /* Bond.framework in Frameworks */,
 				ECE7B77720386948006C40B4 /* Differ.framework in Frameworks */,
 				ECE7B7F92039A76B006C40B4 /* Views.framework in Frameworks */,
-				ECE7B80F2039AA14006C40B4 /* Binders.framework in Frameworks */,
+				ECE7B80F2039AA14006C40B4 /* Wireframes.framework in Frameworks */,
 				ECE7B77820386948006C40B4 /* Layoutless.framework in Frameworks */,
 				ECE7B76A20386931006C40B4 /* Client.framework in Frameworks */,
 				ECE7B79920386EA7006C40B4 /* Entities.framework in Frameworks */,
@@ -318,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				ECE7B74A203867B0006C40B4 /* AbsurdGitter */,
-				ECE7B8092039AA14006C40B4 /* Binders */,
+				ECE7B8092039AA14006C40B4 /* Wireframes */,
 				ECE7B7F32039A76B006C40B4 /* Views */,
 				ECE7B7D320389C2C006C40B4 /* Services */,
 				ECE7B7AE203889DD006C40B4 /* API */,
@@ -338,7 +340,7 @@
 				ECE7B7AD203889DD006C40B4 /* API.framework */,
 				ECE7B7D220389C2C006C40B4 /* Services.framework */,
 				ECE7B7F22039A76B006C40B4 /* Views.framework */,
-				ECE7B8082039AA14006C40B4 /* Binders.framework */,
+				ECE7B8082039AA14006C40B4 /* Wireframes.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -445,10 +447,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		ECE7B8092039AA14006C40B4 /* Binders */ = {
+		ECE7B8092039AA14006C40B4 /* Wireframes */ = {
 			isa = PBXGroup;
 			children = (
-				ECE7B80A2039AA14006C40B4 /* Binders.h */,
+				ECE7B80A2039AA14006C40B4 /* Wireframes.h */,
+				EC9AE14C206F864400339DE9 /* Wireframe.swift */,
 				ECE7B8162039AA55006C40B4 /* MainWindow.swift */,
 				ECE7B8142039AA34006C40B4 /* LoginViewController.swift */,
 				ECA3006A206D0F7300F6EA37 /* MainTabBarController.swift */,
@@ -458,7 +461,7 @@
 				ECA3006E206D14FE00F6EA37 /* ProfileViewController.swift */,
 				ECE7B82A2039C2CE006C40B4 /* Extensions.swift */,
 			);
-			path = Binders;
+			path = Wireframes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,7 +511,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE7B80C2039AA14006C40B4 /* Binders.h in Headers */,
+				ECE7B80C2039AA14006C40B4 /* Wireframes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,9 +636,9 @@
 			productReference = ECE7B7F22039A76B006C40B4 /* Views.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		ECE7B8072039AA14006C40B4 /* Binders */ = {
+		ECE7B8072039AA14006C40B4 /* Wireframes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECE7B8112039AA14006C40B4 /* Build configuration list for PBXNativeTarget "Binders" */;
+			buildConfigurationList = ECE7B8112039AA14006C40B4 /* Build configuration list for PBXNativeTarget "Wireframes" */;
 			buildPhases = (
 				ECE7B8032039AA14006C40B4 /* Sources */,
 				ECE7B8042039AA14006C40B4 /* Frameworks */,
@@ -648,9 +651,9 @@
 				ECE7B8192039AACF006C40B4 /* PBXTargetDependency */,
 				ECE7B81B2039AACF006C40B4 /* PBXTargetDependency */,
 			);
-			name = Binders;
+			name = Wireframes;
 			productName = Binders;
-			productReference = ECE7B8082039AA14006C40B4 /* Binders.framework */;
+			productReference = ECE7B8082039AA14006C40B4 /* Wireframes.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -717,7 +720,7 @@
 				ECE7B7AC203889DD006C40B4 /* API */,
 				ECE7B7D120389C2C006C40B4 /* Services */,
 				ECE7B7F12039A76B006C40B4 /* Views */,
-				ECE7B8072039AA14006C40B4 /* Binders */,
+				ECE7B8072039AA14006C40B4 /* Wireframes */,
 			);
 		};
 /* End PBXProject section */
@@ -886,6 +889,7 @@
 				ECA30072206D40AD00F6EA37 /* RoomNavigationController.swift in Sources */,
 				ECA3006B206D0F7300F6EA37 /* MainTabBarController.swift in Sources */,
 				ECE7B8152039AA34006C40B4 /* LoginViewController.swift in Sources */,
+				EC9AE14D206F864400339DE9 /* Wireframe.swift in Sources */,
 				ECE7B8312039D819006C40B4 /* RoomViewController.swift in Sources */,
 				ECA3006F206D14FE00F6EA37 /* ProfileViewController.swift in Sources */,
 				ECE7B82B2039C2CE006C40B4 /* Extensions.swift in Sources */,
@@ -937,7 +941,7 @@
 		};
 		ECE7B80E2039AA14006C40B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ECE7B8072039AA14006C40B4 /* Binders */;
+			target = ECE7B8072039AA14006C40B4 /* Wireframes */;
 			targetProxy = ECE7B80D2039AA14006C40B4 /* PBXContainerItemProxy */;
 		};
 		ECE7B8192039AACF006C40B4 /* PBXTargetDependency */ = {
@@ -1393,7 +1397,7 @@
 				INFOPLIST_FILE = AbsurdGitter/FrameworkInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AbsurdAbstractions.Binders;
+				PRODUCT_BUNDLE_IDENTIFIER = AbsurdAbstractions.Wireframes;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1422,7 +1426,7 @@
 				INFOPLIST_FILE = AbsurdGitter/FrameworkInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AbsurdAbstractions.Binders;
+				PRODUCT_BUNDLE_IDENTIFIER = AbsurdAbstractions.Wireframes;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -1498,7 +1502,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECE7B8112039AA14006C40B4 /* Build configuration list for PBXNativeTarget "Binders" */ = {
+		ECE7B8112039AA14006C40B4 /* Build configuration list for PBXNativeTarget "Wireframes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECE7B8122039AA14006C40B4 /* Debug */,

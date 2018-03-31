@@ -14,18 +14,11 @@ import ReactiveKit
 
 extension ProfileViewController {
 
-    /// Wireframe is a struct that contains the view controller instance and
-    /// all segues (transitions) that can be initiated by the view controller.
-    /// This view controller does not trigger any segues, but it is still a good
-    /// idea to be consistent and define a wireframe type.
-    struct Wireframe {
-        let viewController: ProfileViewController
-    }
-
     /// Binder is a function that creates and configures the wireframe. It binds the data
     /// from the service to the view controller and user actions from the view controller
     /// to the service.
-    static func makeWireframe(_ session: AuthenticatedSession) -> Wireframe {
+    /// This view controller doesn't present other controllers so there is no Router - we use Void instead.
+    static func makeWireframe(_ session: AuthenticatedSession) -> Wireframe<ProfileViewController, Void> {
         let viewController = ProfileViewController()
 
         // All data, including strings, should be set from the binder (this method).
@@ -47,6 +40,6 @@ extension ProfileViewController {
                 session.invalidate()
             }
 
-        return Wireframe(viewController: viewController)
+        return Wireframe(for: viewController)
     }
 }
