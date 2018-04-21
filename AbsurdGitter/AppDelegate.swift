@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Wireframes
+import Binders
 import Services
 
 @UIApplicationMain

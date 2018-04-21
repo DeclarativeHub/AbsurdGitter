@@ -14,11 +14,10 @@ import ReactiveKit
 
 extension ProfileViewController {
 
-    /// Binder is a function that creates and configures the wireframe. It binds the data
+    /// Binder is a function that creates and configures the view controller. It binds the data
     /// from the service to the view controller and user actions from the view controller
     /// to the service.
-    /// This view controller doesn't present other controllers so there is no Router - we use Void instead.
-    static func makeWireframe(_ session: AuthenticatedSession) -> Wireframe<ProfileViewController, Void> {
+    static func makeViewController(_ session: AuthenticatedSession) -> ProfileViewController {
         let viewController = ProfileViewController()
 
         // All data, including strings, should be set from the binder (this method).
@@ -40,6 +39,6 @@ extension ProfileViewController {
                 session.invalidate()
             }
 
-        return Wireframe(for: viewController)
+        return viewController
     }
 }

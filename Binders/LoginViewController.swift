@@ -16,7 +16,7 @@ import ReactiveKit
 extension LoginViewController {
 
     /// Creates login view controller.
-    static func makeWireframe(_ loginService: LoginService) -> Wireframe<LoginViewController, Void> {
+    static func makeViewController(_ loginService: LoginService) -> LoginViewController {
         let viewController = LoginViewController()
 
         // All data, including strings, should be set from the binder (this method).
@@ -30,6 +30,6 @@ extension LoginViewController {
                 loginService.startLogin()
             }
 
-        return Wireframe(for: viewController)
+        return viewController
     }
 }

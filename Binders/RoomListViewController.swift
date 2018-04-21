@@ -14,24 +14,16 @@ import ReactiveKit
 
 extension RoomListViewController {
 
-    /// Routes type defines all the navigation paths that can be taken from this view controller.
-    enum Routes {
-        /// Sending this to the `router` should present RoomViewController for the given room.
-        case room(Room)
-    }
-
-    /// Binder is a function that creates and configures the wireframe. It binds the data
+    /// Binder is a function that creates and configures the view controller. It binds the data
     /// from the service to the view controller and user actions from the view controller
-    /// to the service. Returns a wireframe containing the view controller and the router (if any).
-    static func makeWireframe(_ roomService: RoomService) -> Wireframe<RoomListViewController, Routes> {
+    /// to the service.
+    static func makeViewController(_ session: AuthenticatedSession) -> RoomListViewController {
 
-        // We just create the view controller instance...
+        // We create the view controller instance...
         let viewContoller = RoomListViewController()
-
-        // ...and the router instance with the right type of routes.
-        let router = Router<Routes>()
-
-        // Then we proceed by setting and binding the data.
+        // ...get the service...
+        let roomService = session.roomService
+        // ...and then we proceed by setting and binding the data:
 
         // Data that is available at the binding time, including strings, can just be assigned...
         viewContoller.title = NSLocalizedString("Rooms", comment: "")
@@ -55,10 +47,17 @@ extension RoomListViewController {
             .bind(to: viewContoller) { viewContoller, room in
                 // We tell to router to navigate to the RoomViewController.
                 // Actual routing is handled by the navigation controller.
-                router.navigate(to: .room(room))
+                viewContoller.presentRoom(room, session: session)
             }
 
-        // Binder always returns a wireframe.
-        return Wireframe(for: viewContoller, router: router)
+        // Binder always returns a view controller.
+        return viewContoller
+    }
+
+    /// Navigation route can be implemented as an extension on the view controller.
+    func presentRoom(_ room: Room, session: AuthenticatedSession) {
+        let service = MessageService(session.client, room: room)
+        let viewController = RoomViewController.makeViewController(service)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

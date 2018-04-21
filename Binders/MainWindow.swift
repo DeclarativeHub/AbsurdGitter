@@ -22,9 +22,9 @@ extension UIWindow {
         sessionManager.currentSession.bind(to: window) { window, session in
             switch session {
             case .authenticated(let session):
-                window.rootViewController = MainTabBarController.makeWireframe(session).viewController
+                window.rootViewController = MainTabBarController.makeViewController(session)
             case .unauthenticated(let session):
-                window.rootViewController = LoginViewController.makeWireframe(session.loginService).viewController
+                window.rootViewController = LoginViewController.makeViewController(session.loginService)
             }
         }
 

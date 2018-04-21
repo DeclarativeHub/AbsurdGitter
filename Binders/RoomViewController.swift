@@ -14,18 +14,11 @@ import ReactiveKit
 
 extension RoomViewController {
 
-    /// Routes type defines all the navigation paths that can be taken from this view controller.
-    enum Routes {
-        /// Sending this to the `router` should present EditMessageViewController for the given message.
-        case editMessage(Message)
-    }
-
-    /// Binder is a function that creates and configures the wireframe. It binds the data
+    /// Binder is a function that creates and configures the view controller. It binds the data
     /// from the service to the view controller and user actions from the view controller
-    /// to the service. Returns a wireframe containing the view controller and the router (if any).
-    static func makeWireframe(_ messageService: MessageService) -> Wireframe<RoomViewController, Routes> {
+    /// to the service.
+    static func makeViewController(_ messageService: MessageService) -> RoomViewController {
         let viewContoller = RoomViewController()
-        let router = Router<Routes>()
 
         // Date that is available at the binding time can just be assigned...
         viewContoller.navigationItem.title = messageService.room.name
@@ -39,6 +32,6 @@ extension RoomViewController {
                 cell.userNameLabel.text = message.fromUser.displayName
             }
 
-        return Wireframe(for: viewContoller, router: router)
+        return viewContoller
     }
 }

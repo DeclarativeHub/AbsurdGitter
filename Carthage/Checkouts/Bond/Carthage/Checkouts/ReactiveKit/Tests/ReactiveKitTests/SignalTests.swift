@@ -96,7 +96,7 @@ class SignalTests: XCTestCase {
 
   func testBuffer() {
     let operation = Signal<Int, TestError>.sequence([1,2,3,4,5])
-    let buffered = operation.buffer(size: 2)
+    let buffered = operation.buffer(ofSize: 2)
     buffered.expectComplete(after: [[1, 2], [3, 4]])
   }
 
@@ -138,7 +138,7 @@ class SignalTests: XCTestCase {
 
   func testWindow() {
     let operation = Signal<Int, TestError>.sequence([1, 2, 3])
-    let window = operation.window(size: 2)
+    let window = operation.window(ofSize: 2)
     window.merge().expectComplete(after: [1, 2])
   }
 
@@ -216,6 +216,28 @@ class SignalTests: XCTestCase {
     let operation = Signal<Int, TestError>.sequence([1, 2, 3])
     let takenLast2 = operation.take(last: 2)
     takenLast2.expectComplete(after: [2, 3])
+  }
+  
+  func testTakeUntil() {
+    let bob = Scheduler()
+    let eve = Scheduler()
+    
+    let operation = Signal<Int, TestError>.sequence([1, 2, 3, 4]).observeIn(bob.context)
+    let interrupt = Signal<String, TestError>.sequence(["A", "B"]).observeIn(eve.context)
+    
+    let takeuntil = operation.take(until: interrupt)
+    
+    let exp = expectation(description: "completed")
+    takeuntil.expectAsyncComplete(after: [1, 2], expectation: exp)
+    
+    bob.runOne()                // Sends 1.
+    bob.runOne()                // Sends 2.
+    eve.runOne()                // Sends A, effectively stopping the receiver.
+    bob.runOne()                // Ignored.
+    eve.runRemaining()          // Ignored. Sends B, with termination.
+    bob.runRemaining()          // Ignored.
+    
+    waitForExpectations(timeout: 1, handler: nil)
   }
 
 //  func testThrottle() {
