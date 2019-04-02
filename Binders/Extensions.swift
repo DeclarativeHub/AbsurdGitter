@@ -37,7 +37,7 @@ extension UIView {
         set {
             if newValue {
                 guard loadingIndicator == nil else { return }
-                let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                let indicator = UIActivityIndicatorView(style: .gray)
                 indicator.tag = UIView.loadingIndicatorTag
                 indicator
                     .sizing(toWidth: 44, height: 44)

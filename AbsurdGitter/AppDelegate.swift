@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// SessionManager manages current user session.
     let sessionManager = SessionManager()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow.makeMainWindow(sessionManager)
         window?.makeKeyAndVisible()
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     /// Observe url scheme deep link - contains OAuth code when user logs in.
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return sessionManager.handleOpenUrl(url)
     }
 }
