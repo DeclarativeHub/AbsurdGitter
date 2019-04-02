@@ -64,7 +64,7 @@ extension Client.Error {
     }
 }
 
-public extension GitterRequest {
+extension GitterRequest {
 
     public func authorized(with token: AccessToken) -> GitterRequest<Resource> {
         var copy = self

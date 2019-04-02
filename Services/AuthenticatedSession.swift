@@ -46,6 +46,6 @@ extension AuthenticatedSession: GitterClientDelegate {
 
     // Session is a delegate of the our HTTP client. The client asks the session to authorize each request with the token.
     public func authorize<Resource>(_ request: GitterRequest<Resource>, client: GitterClient) -> Signal<GitterRequest<Resource>, ApplicationError> {
-        return .just(request.authorized(with: accessToken))
+        return Signal(just: request.authorized(with: accessToken))
     }
 }
