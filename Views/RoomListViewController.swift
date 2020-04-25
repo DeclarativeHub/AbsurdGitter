@@ -9,7 +9,7 @@
 import UIKit
 import Layoutless
 
-public class RoomListViewController: ViewController, UICollectionViewDelegateFlowLayout {
+public class RoomListViewController: UI.ViewController, UICollectionViewDelegateFlowLayout {
 
     public let roomsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         .styled(with: Stylesheet.collectionView)
@@ -34,9 +34,9 @@ public class RoomListViewController: ViewController, UICollectionViewDelegateFlo
 extension RoomListViewController {
 
     /// Layoutless makes view classes trivial so it's perfectly fine to define then in the view controller extensions.
-    public class RoomCell: CollectionViewCell {
+    public class RoomCell: UI.CollectionViewCell {
 
-        public let nameLabel = Label(style: Stylesheet.RoomCell.name)
+        public let nameLabel = UI.Label(style: Stylesheet.RoomCell.name)
 
         public override func setup() {
             Stylesheet.RoomCell.contentView.apply(to: contentView)
@@ -72,7 +72,7 @@ extension RoomListViewController {
                 $0.layer.shadowRadius = 10
             }
 
-            public static let name = Style<Label> {
+            public static let name = Style<UI.Label> {
                 $0.font = .systemFont(ofSize: 18, weight: .black)
                 $0.textColor = .purple
             }

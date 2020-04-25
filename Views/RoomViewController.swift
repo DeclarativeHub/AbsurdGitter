@@ -9,7 +9,7 @@
 import UIKit
 import Layoutless
 
-public class RoomViewController: ViewController, UICollectionViewDelegateFlowLayout {
+public class RoomViewController: UI.ViewController, UICollectionViewDelegateFlowLayout {
 
     public let messagesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         .styled(with: Stylesheet.collectionView)
@@ -33,10 +33,10 @@ public class RoomViewController: ViewController, UICollectionViewDelegateFlowLay
 extension RoomViewController {
 
     /// Layoutless makes view classes trivial so it's perfectly fine to define then in the view controller extensions.
-    public class MessageCell: CollectionViewCell {
+    public class MessageCell: UI.CollectionViewCell {
 
-        public let userNameLabel = Label(style: Stylesheet.MessageCell.userName)
-        public let bodyLabel = Label(style: Stylesheet.MessageCell.body)
+        public let userNameLabel = UI.Label(style: Stylesheet.MessageCell.userName)
+        public let bodyLabel = UI.Label(style: Stylesheet.MessageCell.body)
 
         public override func setup() {
             Stylesheet.MessageCell.contentView.apply(to: contentView)
@@ -69,12 +69,12 @@ extension RoomViewController {
                 $0.backgroundColor = .white
             }
 
-            public static let userName = Style<Label> {
+            public static let userName = Style<UI.Label> {
                 $0.font = .systemFont(ofSize: 14, weight: .bold)
                 $0.textColor = .purple
             }
 
-            public static let body = Style<Label> {
+            public static let body = Style<UI.Label> {
                 $0.font = .systemFont(ofSize: 14)
                 $0.textColor = .black
                 $0.numberOfLines = 0

@@ -31,9 +31,9 @@ open class GitterClient: LoggingClient {
             let task = self.perform(request) { result in
                 switch result {
                 case .success(let resource):
-                    observer.completed(with: resource)
+                    observer.receive(lastElement: resource)
                 case .failure(let error):
-                    observer.failed(ApplicationError(error))
+                    observer.receive(completion: .failure(ApplicationError(error)))
                 }
             }
             return BlockDisposable {

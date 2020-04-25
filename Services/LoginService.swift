@@ -23,7 +23,7 @@ public class LoginService {
         return URL(string: "\(LoginService.authorizationBaseURL)?client_id=\(LoginService.clientID)&response_type=code&redirect_uri=\(LoginService.redirectURI)")!
     }
 
-    private let tokenCode = SafePublishSubject<String>()
+    private let tokenCode = PassthroughSubject<String, Never>()
 
     /// Will emit an access token when the user authorizes the app
     public let accessToken: SafeSignal<AccessToken>
@@ -35,14 +35,14 @@ public class LoginService {
                 .token(clientID: LoginService.clientID, secret: LoginService.secret, code: code, redirectURI: LoginService.redirectURI)
                 .response(using: client)
                 .suppressError(logging: true)
-        }.shareReplay()
+        }.share()
     }
 
     /// Observe url scheme deep link - contains OAuth code when user logs in.
     public func handleOpenUrl(_ url: URL) -> Bool {
         if isRedirect(url) {
             if let code = parseCodeFrom(url) {
-                tokenCode.next(code)
+                tokenCode.send(code)
             } else {
                 log.error("No token code received.")
             }

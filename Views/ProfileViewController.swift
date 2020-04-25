@@ -9,11 +9,11 @@
 import UIKit
 import Layoutless
 
-public class ProfileViewController: ViewController {
+public class ProfileViewController: UI.ViewController {
 
-    public let nameLabel = Label(style: Stylesheet.name)
-    public let usernameLabel = Label(style: Stylesheet.username)
-    public let logoutButton = Button(type: .system)
+    public let nameLabel = UI.Label(style: Stylesheet.name)
+    public let usernameLabel = UI.Label(style: Stylesheet.username)
+    public let logoutButton = UI.Button(type: .system)
 
     public override func setup() {
         tabBarItem.image = #imageLiteral(resourceName: "avatar")
@@ -44,12 +44,12 @@ extension ProfileViewController {
             $0.backgroundColor = .white
         }
 
-        public static let name = Style<Label> {
+        public static let name = Style<UI.Label> {
             $0.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             $0.textAlignment = .center
         }
 
-        public static let username = Style<Label> {
+        public static let username = Style<UI.Label> {
             $0.font = UIFont.systemFont(ofSize: 19, weight: .regular)
             $0.textAlignment = .center
         }

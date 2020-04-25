@@ -9,9 +9,9 @@
 import UIKit
 import Layoutless
 
-public class LoginViewController: ViewController {
+public class LoginViewController: UI.ViewController {
 
-    public let loginButton = Button(type: .system).styled(with: Stylesheet.loginButton)
+    public let loginButton = UI.Button(type: .system).styled(with: Stylesheet.loginButton)
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ extension LoginViewController {
             $0.backgroundColor = .white
         }
 
-        public static let loginButton = Style<Button> {
+        public static let loginButton = Style<UI.Button> {
             $0.setTitleColor(.purple, for: .normal)
             $0.titleLabel?.font = .systemFont(ofSize: 20)
         }
